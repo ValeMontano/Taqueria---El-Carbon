@@ -16,8 +16,8 @@ function selectSucursal(card, mapSrc) {
   setTimeout(() => { 
     iframe.src = mapSrc; 
   }, 50);
-
-  // ── MENÚ HAMBURGUESA ──
+}
+// ── MENÚ HAMBURGUESA ──
 const hamburger = document.getElementById('navHamburger');
 const mobileMenu = document.getElementById('mobileMenu');
 
@@ -26,9 +26,11 @@ hamburger.addEventListener('click', () => {
   hamburger.classList.toggle('open');
   mobileMenu.classList.toggle('open');
   hamburger.setAttribute('aria-expanded', !isOpen);
+  // Bloquear scroll cuando menú está abierto
   document.body.style.overflow = isOpen ? '' : 'hidden';
 });
 
+// Cerrar al tocar un link
 document.querySelectorAll('.mobile-link').forEach(link => {
   link.addEventListener('click', () => {
     hamburger.classList.remove('open');
@@ -37,4 +39,3 @@ document.querySelectorAll('.mobile-link').forEach(link => {
     document.body.style.overflow = '';
   });
 });
-}

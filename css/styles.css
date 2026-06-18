@@ -112,9 +112,12 @@ nav {
 
 .hero-title .accent { color: var(--amarillo); }
 .hero-title .stroke {
-  -webkit-text-stroke: 2px var(--amarillo);
-  color: transparent;
-  font-family: 'Bebas Neue', sans-serif; 
+  -webkit-text-stroke: 2px var(--amarillo) !important;
+  color: transparent !important;
+  font-family: 'Bebas Neue', sans-serif !important;
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-color: transparent;
 }
 
 .hero-sub {
@@ -723,7 +726,6 @@ footer {
   .sucursales-grid { grid-template-columns: 1fr; }
   .sucursales-map { position: static; aspect-ratio: 16/9; }
 }
-
 /* ── HAMBURGER & MOBILE MENU ── */
 .nav-hamburger {
   display: none;
@@ -747,10 +749,12 @@ footer {
   transform-origin: center;
 }
 
+/* Animación a X cuando está abierto */
 .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
 .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
+/* Overlay menú móvil */
 .mobile-menu {
   display: none;
   position: fixed;
