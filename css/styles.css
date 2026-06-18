@@ -723,3 +723,95 @@ footer {
   .sucursales-grid { grid-template-columns: 1fr; }
   .sucursales-map { position: static; aspect-ratio: 16/9; }
 }
+
+/* ── HAMBURGER & MOBILE MENU ── */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  z-index: 200;
+}
+
+.nav-hamburger span {
+  display: block;
+  width: 26px;
+  height: 2px;
+  background: var(--amarillo);
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform-origin: center;
+}
+
+.nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: var(--azul);
+  z-index: 150;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+
+.mobile-menu.open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+
+.mobile-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0 2rem;
+}
+
+.mobile-link {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.2rem;
+  letter-spacing: 3px;
+  color: var(--blanco);
+  text-decoration: none;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid rgba(250,248,244,0.1);
+  transition: color 0.2s;
+}
+
+.mobile-link:hover { color: var(--amarillo); }
+
+.mobile-link-cta {
+  margin-top: 1.5rem;
+  background: var(--amarillo);
+  color: var(--azul) !important;
+  padding: 0.8rem 2.5rem;
+  font-size: 1.6rem;
+  border-bottom: none;
+  border-radius: 2px;
+  width: auto;
+}
+
+.mobile-link-cta:hover { background: var(--naranja); color: var(--blanco) !important; }
+
+@media (max-width: 900px) {
+  .nav-hamburger { display: flex; }
+  .mobile-menu { display: flex; }
+}

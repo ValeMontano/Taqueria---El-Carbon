@@ -16,4 +16,25 @@ function selectSucursal(card, mapSrc) {
   setTimeout(() => { 
     iframe.src = mapSrc; 
   }, 50);
+
+  // ── MENÚ HAMBURGUESA ──
+const hamburger = document.getElementById('navHamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+
+hamburger.addEventListener('click', () => {
+  const isOpen = mobileMenu.classList.contains('open');
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+  hamburger.setAttribute('aria-expanded', !isOpen);
+  document.body.style.overflow = isOpen ? '' : 'hidden';
+});
+
+document.querySelectorAll('.mobile-link').forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  });
+});
 }
